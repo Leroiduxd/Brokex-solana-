@@ -136,6 +136,62 @@ This allows the protocol to dynamically adjust how strict it is.
 If a trade makes the imbalance too high or requires too much capital, it is rejected.
 
 If it improves balance or stays within limits, it is accepted.
+Voici une version propre en **Markdown + code style**, directement copiable dans ta doc :
+
+---
+
+```md
+### Imbalance
+
+The imbalance between long and short open interest is defined as:
+
+imbalance = abs(longOI - shortOI) / (longOI + shortOI)
+
+- imbalance = 0 → perfectly balanced
+- imbalance = 1 → fully one-sided
+```
+
+---
+
+```md
+### Alpha (Capital Efficiency Coefficient)
+
+Alpha controls how much capital must be locked depending on imbalance.
+
+alpha = alphaMin + (alphaMax - alphaMin) * (imbalance ^ K)
+
+Where:
+
+- alphaMin: minimum capital requirement when market is balanced
+- alphaMax: maximum capital requirement when market is fully imbalanced
+- K: curve parameter controlling how fast alpha increases
+```
+
+---
+
+```md
+### Required Capital (needLock)
+
+The required capital to lock in the vault is:
+
+needLock = max(longSideRisk, shortSideRisk) * alpha
+
+Where:
+
+- longSideRisk: total max profit exposure of all long positions
+- shortSideRisk: total max profit exposure of all short positions
+```
+
+---
+
+```md
+### Summary
+
+- When imbalance is low → alpha is close to alphaMin → less capital is locked
+- When imbalance is high → alpha is close to alphaMax → more capital is locked
+
+This ensures capital efficiency when the system is balanced and protection when it is not.
+```
 
 ---
 
