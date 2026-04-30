@@ -141,7 +141,7 @@ Voici une version propre en **Markdown + code style**, directement copiable dans
 ---
 
 ```md
-### Imbalance
+Imbalance
 
 The imbalance between long and short open interest is defined as:
 
@@ -154,7 +154,7 @@ imbalance = abs(longOI - shortOI) / (longOI + shortOI)
 ---
 
 ```md
-### Alpha (Capital Efficiency Coefficient)
+Alpha (Capital Efficiency Coefficient)
 
 Alpha controls how much capital must be locked depending on imbalance.
 
@@ -170,7 +170,7 @@ Where:
 ---
 
 ```md
-### Required Capital (needLock)
+Required Capital (needLock)
 
 The required capital to lock in the vault is:
 
@@ -185,7 +185,7 @@ Where:
 ---
 
 ```md
-### Summary
+Summary
 
 - When imbalance is low → alpha is close to alphaMin → less capital is locked
 - When imbalance is high → alpha is close to alphaMax → more capital is locked
