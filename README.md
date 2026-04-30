@@ -1,5 +1,3 @@
----
-
 # Brokex — Protocol Explanation
 
 ## 1. What is Brokex?
