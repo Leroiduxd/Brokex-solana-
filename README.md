@@ -277,6 +277,4 @@ It uses:
 
 to keep the system stable while remaining simple and usable.
 
----
-
 
